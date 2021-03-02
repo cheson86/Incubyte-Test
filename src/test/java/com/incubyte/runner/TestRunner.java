@@ -8,7 +8,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = {"features"},
-tags = {"@Login,@ComposeMail"},
+tags = {"@Login,@ComposeMail,@InvalidAttachment"},
 glue = {"com.incubyte.stepdefinitions"})
 public class TestRunner extends AbstractTestNGCucumberTests{
 	

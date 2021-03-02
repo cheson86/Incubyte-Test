@@ -53,6 +53,12 @@ public class InboxPage {
 		Runtime.getRuntime().exec(path);
 		Thread.sleep(6000);
 	}
+	
+	/*
+	 * public void addInvalidAttachment(String path) throws IOException,
+	 * InterruptedException { driver.findElement(attachment).click();
+	 * Runtime.getRuntime().exec(path); Thread.sleep(6000); }
+	 */
 
 	By sentPopUp = By.cssSelector(".vh");
 
@@ -64,6 +70,21 @@ public class InboxPage {
 
 	public WebElement getSearchMail() {
 		return driver.findElement(searchMail);
+	}
+	
+	By invalidPopUp = By.xpath("//span[contains(text(),'Blocked for security')]");
+
+	public WebElement getInvalidPopUp() {
+		return driver.findElement(invalidPopUp);
+	}
+	
+	
+	By accountIcon = By.cssSelector("img[class='gb_Da gbii']");
+	By signOut = By.cssSelector("#gb_71");
+
+	public WebElement getSignOut() {
+		driver.findElement(accountIcon).click();
+		return driver.findElement(signOut);
 	}
 
 }

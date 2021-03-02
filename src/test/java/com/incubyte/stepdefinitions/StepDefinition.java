@@ -99,5 +99,25 @@ public class StepDefinition {
 
 		driver.close();
 	}
+	
+	  @When("^User clicks on compoase button and adds invalid attachment$")
+	    public void user_clicks_on_compoase_button_and_adds_invalid_attachment() throws Throwable {
+		  inboxPage.composeButton().click();
+		  String invalidPath = base.properties.getProperty("invalidAttachmentPath");
+
+			inboxPage.addAttachment(invalidPath);
+	    }
+
+	    @Then("^Message for invalid attachment appears$")
+	    public void message_for_invalid_attachment_appears() throws Throwable {
+	    	Assert.assertTrue(inboxPage.getInvalidPopUp().isDisplayed());
+	        
+	    }
+	    
+	    @And("^User signs out of gmail$")
+	    public void user_signs_out_of_gmail() throws Throwable {
+	       // throw new PendingException();
+	    	inboxPage.getSignOut().click();
+	    }
 
 }
